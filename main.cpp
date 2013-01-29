@@ -12,6 +12,8 @@
 int main(int argc, char *argv[]){
 
     menu();
+    
+    writeln ("Test message!");
 
     SDL_Quit();
     return 0;

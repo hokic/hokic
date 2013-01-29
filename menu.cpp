@@ -77,7 +77,7 @@ void beallitasok(void){
      
      FILE *fp;
      
-     fp = fopen("opciok.txt");
+     fp = fopen("opciok.txt", "wt");
      
      
      fclose(fp);

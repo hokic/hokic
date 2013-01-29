@@ -9,4 +9,8 @@ int menu(void){
      * parameterrel rendelkeznenek, mert azoknak a kiertekelese
      * plusz teljesitmeny.*/
 
+    SDL_Init (SDL_INIT_VIDEO);
+    SDL_WM_SetCaption("Hoki","Hoki");
+    screen=SDL_SetVideoMode (500, 250, 0, SDL_ANYFORMAT);
+    /*A kepernyo mereteit meg at kell gondolni*/
 }

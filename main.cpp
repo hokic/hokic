@@ -10,8 +10,10 @@
 
 
 int main(int argc, char *argv[]){
+    SDL_Event event;
+    SDL_Surface *screen;
 
-    menu();
+    menu(event, screen);
 
     SDL_Quit();
     return 0;

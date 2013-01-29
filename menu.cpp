@@ -5,9 +5,7 @@
 #include <SDL_ttf.h>
 #include <SDL_image.h>
 
-int menu(void){
-    SDL_Event event;
-    SDL_Surface *screen;
+int menu(SDL_Event event, SDL_Surface *screen){
     
     int quit=0;
 

@@ -1,3 +1,5 @@
+#include "deklaracio.h"
+
 Menupont beallitasok(SDL_Event event, SDL_Surface* screen){
     
     /* A beallitasok nelkulozhetetlenek lesznek a jatekban. Konkretan a nehezsegi fokot lehetne allitani,      

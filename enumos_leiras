@@ -1,1 +1,4 @@
- 
+Menupont leiras(SDL_Event event, SDL_Surface*screen){
+
+    /*A jatek leirasat ebben a fuggvenyben tudjuk majd megcsinalni*/
+}

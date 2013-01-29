@@ -76,6 +76,13 @@ void beallitasok(void){
      * beallitasokba, akkor irasra nyitja a fajlt es ezutan azokkal az adatokkal dolgozik tovabb.
      *
      * Ilyesmire gondoltam, szerintem kivitelezheto, de ha van jobb megoldas, akkor mondjatok. */
+     
+     FILE *fp;
+     
+     fp = fopen("opciok.txt");
+     
+     
+     fclose(fp);
     
 }
 

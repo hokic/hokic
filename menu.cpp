@@ -34,14 +34,21 @@ int menu(void){
         
         SDL_WaitEvent (&event);
         switch (event.type){
+            case SDL_MOUSEBUTTONDOWN:
+                /*Parameterek megadasa*/
+                if (event.button.button == SDL_BUTTON_LEFT)
+                    if (event.button.x < 100 && event.button.y < 100) /*Tesztkattintas, de el se jut idaig, mert kidob*/
+                        return 2;
+
+                break;
+
             case SDL_QUIT:
                 quit=1;
                 break;
-            
-            case SDL_MOUSEBUTTONDOWN:
-                /*Parameterek megadase*/
+
+            default:
+                return 3;
         }
-        
     }
 }
 

@@ -83,13 +83,6 @@ Menupont beallitasok(SDL_Event event, SDL_Surface* screen)
     //Ide sok minden kell majd még
 }
 
-Menupont dicsoseglista(SDL_Event event, SDL_Surface* screen)
-{
-    /* Dicsoseglista fuggvenye. Ezt nagy valoszinuseggel itt is     
-    * lancolt listaval kell majd kivitelezni, abban pedig mostansag profi     
-    * vagyok. A jatekban merni fogjuk az idot, illetve a golok szamat. Lehetne     
-    * nehezsegi szinteket csinalni es akkor ezek alapjan lehetne rangsorolni.*/
-} 
 
 Menupont leiras(SDL_Event event, SDL_Surface*screen)
 {

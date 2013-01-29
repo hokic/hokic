@@ -3,6 +3,9 @@
 
 using namespace std;
 
+const int SZELESSEG = 640;
+const int MAGASSAG = 480;
+
 int main (int argc, char* argv[])
 {
     SDL_Event event;

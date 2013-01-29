@@ -3,8 +3,6 @@
 
 using namespace std;
 
-typedef enum Menupont {FOMENU, EGYJATEKOS, TOBBJATEKOS, LEIRAS, HIGHSCORE, KILEPES} Menupont;   //Saját típus azért, hogy átlátható legyen, mit töltünk be következő függvénynek
-
 int main (int argc, char* argv[])
 {
     SDL_Event event;

@@ -7,6 +7,7 @@
 
 //MENU FUGGVENYEK DEKLARALASA
 int menu(SDL_Event event, SDL_Surface *screen);
+Menupont (*pt_beallitasok) (SDL_Event event, SDL_Surface* screen)
 void beallitasok(void);
 void dicsoseglista(void);
 void leiras(void);

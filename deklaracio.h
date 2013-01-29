@@ -13,7 +13,7 @@ Menupont beallitasok(SDL_Event event, SDL_Surface* screen);
 Menupont leiras(SDL_Event event, SDL_Surface*screen);
 
 //JATEK FUGGVENYEK DEKLARALASA
-//Uint32 idozit(Uint32 ms, void* param);
-void jatek(void);
+Uint32 idozit(Uint32 ms, void* param);
+Menupont jatek(SDL_Event event, SDL_Surface* screen);
 
 #endif

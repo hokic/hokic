@@ -1,5 +1,10 @@
 #include "deklaracio.h"
 
+#include <SDL.h>
+#include <sdl_gfxprimitives.h>
+#include <SDL_ttf.h>
+#include <SDL_image.h>
+
 int menu(void){
     SDL_Event event;
     SDL_Surface *screen;

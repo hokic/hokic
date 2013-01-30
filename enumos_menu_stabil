@@ -24,11 +24,7 @@ Menupont menu(SDL_Event event, SDL_Surface *screen)
     {
         /*Kepek megjelenitese, majd a switch-case kombo a kattintasok vizsgalatara.*/
 
-        /* Arra még nem jöttem rá, hogy melyik függvény felelős azért, hogy az egér épp melyik koordinátáok van, 
-         * így az esetbontás sincsen még kész. Jelenleg ezzel a verzióval minden sárgára szineződik át, de ha
-         * kikommentezitek egyesével, akkor látható a változás. Tehát jelenleg semmi mást nem csináltam, csak az 
-         * adott képrészleteket adott helyen jelenítettem meg. */
-
+        
         //Menüképek betöltése
         SDL_Surface* menu_sima = IMG_Load("pictures/menu/menu_background.png");
         SDL_Surface* menu_jelolt = IMG_Load("pictures/menu/menu_background_kijelolt.png");
@@ -37,29 +33,39 @@ Menupont menu(SDL_Event event, SDL_Surface *screen)
         SDL_BlitSurface(menu_sima, 0, screen, &dstrect_menu_sima);
 
         //JÁTÉK GOMBJÁNAK SZÍNVÁLTOZTATÁSA
-        SDL_Rect dstrect_menu_jelolt = {402, 205, 510, 250};
-        SDL_Rect dstrect_forras = {402, 205, 510-402, 250-205}; // Sárga rész téglalapjának a meghatározása
-        SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+        if (402 < event.motion.x && event.motion.x < 510 && 205 < event.motion.y && event.motion.y < 250){
+            SDL_Rect dstrect_menu_jelolt = {402, 205, 510, 250};
+            SDL_Rect dstrect_forras = {402, 205, 510-402, 250-205}; // Sárga rész téglalapjának a meghatározása
+            SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+        }
 
         //BEÁLLÍTÁSOK GOMBJÁNAK SZÍNVÁLTOZTATÁSA
-        dstrect_menu_jelolt = {345, 260, 565, 305};
-        dstrect_forras = {345, 260, 565-345, 305-260}; // Sárga rész téglalapjának a meghatározása
-        SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+        if (345 < event.motion.x && event.motion.x < 565 && 260 < event.motion.y && event.motion.y < 305){
+            SDL_Rect dstrect_menu_jelolt = {345, 260, 565, 305};
+            SDL_Rect dstrect_forras = {345, 260, 565-345, 305-260}; // Sárga rész téglalapjának a meghatározása
+            SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+        }
 
         //REKORDOK GOMBJÁNAK SZÍNVÁLTOZTATÁSA
-        dstrect_menu_jelolt = {360, 315, 550, 360};
-        dstrect_forras = {360, 315, 550-360, 360-315}; // Sárga rész téglalapjának a meghatározása
-        SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+        if (360 < event.motion.x && event.motion.x < 550 && 315 < event.motion.y && event.motion.y < 360){
+            SDL_Rect dstrect_menu_jelolt = {360, 315, 550, 360};
+            SDL_Rect dstrect_forras = {360, 315, 550-360, 360-315}; // Sárga rész téglalapjának a meghatározása
+            SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+        }
 
         //LEÍRÁS GOMBJÁNAK SZÍNVÁLTOZTATÁSA
-        dstrect_menu_jelolt = {400, 370, 520, 415};
-        dstrect_forras = {400, 370, 520-400, 415-370}; // Sárga rész téglalapjának a meghatározása
-        SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+        if (400 < event.motion.x && event.motion.x < 520 && 370 < event.motion.y && event.motion.y < 415){
+            SDL_Rect dstrect_menu_jelolt = {400, 370, 520, 415};
+            SDL_Rect dstrect_forras = {400, 370, 520-400, 415-370}; // Sárga rész téglalapjának a meghatározása
+            SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+        }
 
         //KILÉPÉS GOMBJÁNAK SZÍNVÁLTOZTATÁSA
-        dstrect_menu_jelolt = {390, 430, 530, 465};
-        dstrect_forras = {390, 430, 530-390, 465-430}; // Sárga rész téglalapjának a meghatározása
-        SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+        if (390 < event.motion.x && event.motion.x < 530 && 430 < event.motion.y && event.motion.y < 465){
+            SDL_Rect dstrect_menu_jelolt = {390, 430, 530, 465};
+            SDL_Rect dstrect_forras = {390, 430, 530-390, 465-430}; // Sárga rész téglalapjának a meghatározása
+            SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+        }
 
         SDL_FreeSurface(menu_jelolt);
         SDL_FreeSurface(menu_sima);

@@ -8,20 +8,13 @@ Menupont menu(SDL_Event event, SDL_Surface *screen)
 {
     bool quit=0;
 
-    /* Menu megjelenitese, illetve a kattintasok vizsgalata.
-    * Szerintem ugy lenne a jo, ha a fuggvenyek minel kevesebb
-    * parameterrel rendelkeznenek, mert azoknak a kiertekelese
-    * plusz teljesitmeny.*/
-
-    /*Ha van otlet tovabbi menupontokhoz, akkor ide irjatok majd*/
-
     SDL_Init(SDL_INIT_VIDEO);
 
     screen = SDL_SetVideoMode(SZELESSEG, MAGASSAG, 0, SDL_ANYFORMAT);
 
     if (!screen){
-        std::cout << "Ablak megnyitasa nem sikerult!\n" << endl;
-        return 1;
+        printf("Ablak megnyitasa sikertelen!\n");
+        return KILEPES;
     }
 
     SDL_WM_SetCaption("Hoki","Hoki");
@@ -31,16 +24,50 @@ Menupont menu(SDL_Event event, SDL_Surface *screen)
     {
         /*Kepek megjelenitese, majd a switch-case kombo a kattintasok vizsgalatara.*/
 
-        boxRGBA(screen, 0, 0, SZELESSEG, MAGASSAG, 255, 255, 255, 255);
+        /* Arra még nem jöttem rá, hogy melyik függvény felelős azért, hogy az egér épp melyik koordinátáok van, 
+         * így az esetbontás sincsen még kész. Jelenleg ezzel a verzióval minden sárgára szineződik át, de ha
+         * kikommentezitek egyesével, akkor látható a változás. Tehát jelenleg semmi mást nem csináltam, csak az 
+         * adott képrészleteket adott helyen jelenítettem meg. */
 
-        /* Szamomra erthetetlen modon egybol bezarodik a program, majd akinek lesz
-        * otlete... Mindenesetre a grafikai resznek is neki kell majd kezdeni
-        * hogy ne visszafele kelljen dolgoni.*/
+        //Menüképek betöltése
+        SDL_Surface* menu_sima = IMG_Load("pictures/menu/menu_background.png");
+        SDL_Surface* menu_jelolt = IMG_Load("pictures/menu/menu_background_kijelolt.png");
+        //Alap menükép behelyezése az ablakba
+        SDL_Rect dstrect_menu_sima = {0, 0, SZELESSEG, MAGASSAG};
+        SDL_BlitSurface(menu_sima, 0, screen, &dstrect_menu_sima);
+
+        //JÁTÉK GOMBJÁNAK SZÍNVÁLTOZTATÁSA
+        SDL_Rect dstrect_menu_jelolt = {402, 205, 510, 250};
+        SDL_Rect dstrect_forras = {402, 205, 510-402, 250-205}; // Sárga rész téglalapjának a meghatározása
+        SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+
+        //BEÁLLÍTÁSOK GOMBJÁNAK SZÍNVÁLTOZTATÁSA
+        dstrect_menu_jelolt = {345, 260, 565, 305};
+        dstrect_forras = {345, 260, 565-345, 305-260}; // Sárga rész téglalapjának a meghatározása
+        SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+
+        //REKORDOK GOMBJÁNAK SZÍNVÁLTOZTATÁSA
+        dstrect_menu_jelolt = {360, 315, 550, 360};
+        dstrect_forras = {360, 315, 550-360, 360-315}; // Sárga rész téglalapjának a meghatározása
+        SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+
+        //LEÍRÁS GOMBJÁNAK SZÍNVÁLTOZTATÁSA
+        dstrect_menu_jelolt = {400, 370, 520, 415};
+        dstrect_forras = {400, 370, 520-400, 415-370}; // Sárga rész téglalapjának a meghatározása
+        SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+
+        //KILÉPÉS GOMBJÁNAK SZÍNVÁLTOZTATÁSA
+        dstrect_menu_jelolt = {390, 430, 530, 465};
+        dstrect_forras = {390, 430, 530-390, 465-430}; // Sárga rész téglalapjának a meghatározása
+        SDL_BlitSurface(menu_jelolt, &dstrect_forras, screen, &dstrect_menu_jelolt);
+
+        SDL_FreeSurface(menu_jelolt);
+        SDL_FreeSurface(menu_sima);
 
         SDL_Flip(screen);
         SDL_WaitEvent (&event);
-        switch (event.type)
-        {
+        
+        switch (event.type){
         case SDL_MOUSEBUTTONDOWN:                /*Parameterek megadasa*/
             if (event.button.button == SDL_BUTTON_LEFT)
                 if (event.button.x < 100 && event.button.y < 100)

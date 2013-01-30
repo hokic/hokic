@@ -20,7 +20,7 @@ Menupont jatek(SDL_Event event, SDL_Surface* screen)
     
     //Itt volt egy SDL_Init, de akkor a Timer is mehet a mainben inicializálásra
     SDL_FreeSurface(screen);
-    screen = SDL_SetVideoMod(900, 450, 0, SDL_ANYFORMAT);
+    screen = SDL_SetVideoMode(900, 450, 0, SDL_ANYFORMAT);
     
     id = SDL_AddTimer(50, idozit, NULL);        /*CIKLUS*/
     

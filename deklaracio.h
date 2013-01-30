@@ -6,6 +6,9 @@
 
 typedef enum Menupont {FOMENU, EGYJATEKOS, TOBBJATEKOS, LEIRAS, HIGHSCORE, KILEPES} Menupont;
 
+const int SZELESSEG = 640;
+const int MAGASSAG = 480;
+
 //MENU FUGGVENYEK DEKLARALASA 
 Menupont menu(SDL_Event event, SDL_Surface *screen);
 Menupont fomenu (SDL_Event event, SDL_Surface* screen);

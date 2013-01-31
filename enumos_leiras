@@ -2,9 +2,31 @@
 
 Menupont leiras(SDL_Event event, SDL_Surface*screen){
 
+    bool quit = false;
+
+
     SDL_Surface* leiras = IMG_Load("pictures/menu/leiras_background.png");
     SDL_Rect dstrect_leiras = {0, 0, SZELESSEG, MAGASSAG};
-    SDL_Rect dstrect_forras = {0, 0, SZELESSEG, MAGASSAG};
     SDL_BlitSurface(leiras, 0, screen, &dstrect_leiras);
+
+    SDL_Surface* back = IMG_Load("pictures/menu/back.png");
+    SDL_Rect dstrect_back = {590, 430, 50, 50};
+    SDL_BlitSurface(back, 0, screen, &dstrect_back);
     SDL_Flip(screen);
+
+    while(!quit){
+        SDL_WaitEvent(&event);
+        switch(event.type){
+            case SDL_MOUSEBUTTONDOWN:
+                if(event.button.button == SDL_BUTTON_LEFT)
+                    if (590 < event.motion.x && event.motion.x < 640 && 430 < event.motion.y && event.motion.y < 480)
+                        return FOMENU;
+
+            case SDL_QUIT:
+                quit = true;
+                return KILEPES;
+        }
+
+    }
+    //SDL_FreeSurface(leiras);
 }

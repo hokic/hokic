@@ -23,10 +23,11 @@ Menupont leiras(SDL_Event event, SDL_Surface*screen){
                         return FOMENU;
 
             case SDL_QUIT:
-                quit = true;
-                return KILEPES;
+                quit = 1;
         }
 
     }
-    //SDL_FreeSurface(leiras);
+    SDL_FreeSurface(back);
+    SDL_FreeSurface(leiras);
+    return KILEPES;
 }

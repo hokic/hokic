@@ -6,6 +6,13 @@
 
 typedef enum Menupont {FOMENU, JATEK, BEALLITASOK, HIGHSCORE, LEIRAS, KILEPES} Menupont;
 
+//DICSOSEGLISTA DEKLARACIOJA
+typedef struct Lista{
+    char nev[11];
+    int gol;
+    struct Lista *kov;
+} Lista;
+
 const int SZELESSEG = 640;
 const int MAGASSAG = 480;
 

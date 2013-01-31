@@ -7,12 +7,15 @@ Menupont leiras(SDL_Event event, SDL_Surface*screen){
 
     SDL_Surface* leiras = IMG_Load("pictures/menu/leiras_background.png");
     SDL_Rect dstrect_leiras = {0, 0, SZELESSEG, MAGASSAG};
-    SDL_BlitSurface(leiras, 0, screen, &dstrect_leiras);
+    SDL_Rect dstrect_fleiras = {0, 0, 0, 0};
+    SDL_BlitSurface(leiras, &dstrect_leiras, screen, &dstrect_fleiras);
 
     SDL_Surface* back = IMG_Load("pictures/menu/back.png");
     SDL_Rect dstrect_back = {590, 430, 50, 50};
-    SDL_BlitSurface(back, 0, screen, &dstrect_back);
+    SDL_Rect dstrect_fback = {590, 430, 0, 0};
+    SDL_BlitSurface(back, &dstrect_back, screen, &dstrect_fback);
     SDL_Flip(screen);
+
 
     while(!quit){
         SDL_WaitEvent(&event);

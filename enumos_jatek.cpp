@@ -1,7 +1,26 @@
 #include "deklaracio.h"
 
-/*A jatek fuggvenyenek a helye.*//*Az idozitohoz a fuggveny*/
+Lista* beszur(Lista* eleje, char *nev, int gol){
+    Lista *elozo, *uj, *mozgo;
+    
+    uj=(Lista*)malloc(sizeof(Lista));
+    strcpy(uj->nev, nev);
+    uj->gol=gol;
+    
+    for (elozo=NULL, mozgo=eleje; (mozgo!=NULL) && mozgo->gol >uj->gol; elozo=mozgo, mozgo=mozgo->kov);
+    
+    if (elozo == NULL){
+        uj->kov = eleje;
+        return uj;
+    } 
+    else{
+        elozo->kov = uj;
+        uj->kov = mozgo;
+        return eleje;
+    }
+}
 
+/*Az idozitohoz a fuggveny*/
 Uint32 idozit(Uint32 ms, void* param)
 {
     SDL_Event ev;
@@ -11,7 +30,6 @@ Uint32 idozit(Uint32 ms, void* param)
 }
 
 /*Jatek fuggveny*/
-
 Menupont jatek(SDL_Event event, SDL_Surface* screen)
 {
     SDL_TimerID id;

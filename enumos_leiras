@@ -2,5 +2,9 @@
 
 Menupont leiras(SDL_Event event, SDL_Surface*screen){
 
-    /*A jatek leirasat ebben a fuggvenyben tudjuk majd megcsinalni*/
+    SDL_Surface* leiras = IMG_Load("pictures/menu/leiras_background.png");
+    SDL_Rect dstrect_leiras = {0, 0, SZELESSEG, MAGASSAG};
+    SDL_Rect dstrect_forras = {0, 0, SZELESSEG, MAGASSAG};
+    SDL_BlitSurface(leiras, 0, screen, &dstrect_leiras);
+    SDL_Flip(screen);
 }

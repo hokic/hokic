@@ -1,0 +1,73 @@
+#include "deklaracio.h"
+#include <SDL.h>
+#include <sdl_gfxprimitives.h>
+#include <SDL_ttf.h>
+#include <SDL_image.h>
+
+void kep_masol (SDL_Surface* screen, SDL_Surface* menu_jelolt, int a, int b, int c, int d)
+{
+    SDL_Rect dstrect_menu_jelolt = {a, b, c-a, d-b};
+    SDL_Rect dstrect_forras = {a, b, 0, 0};
+    SDL_BlitSurface(menu_jelolt, &dstrect_menu_jelolt, screen, &dstrect_forras);
+    SDL_Flip(screen);
+}
+
+Menupont menu(SDL_Event event, SDL_Surface *screen)
+{
+    bool quit = false;
+    SDL_Surface* menu_sima = IMG_Load("pictures/menu/menu_background.png");
+    SDL_Surface* menu_jelolt = IMG_Load("pictures/menu/menu_background_kijelolt.png");
+    Menupont aktiv = SEMELYIK;
+
+    kep_masol (screen, menu_sima, 0, 0, SZELESSEG, MAGASSAG);
+
+    while (!quit)
+    {
+        SDL_WaitEvent(&event);
+        switch (event.type)
+        {
+        case SDL_MOUSEMOTION:
+                 if (402 < event.motion.x && event.motion.x < 510 && 205 < event.motion.y && event.motion.y < 250)
+            {
+                kep_masol (screen, menu_jelolt, 402, 205, 510, 250);
+                aktiv = JATEK;
+            }
+            else if (345 < event.motion.x && event.motion.x < 565 && 260 < event.motion.y && event.motion.y < 305)
+            {
+                kep_masol (screen, menu_jelolt, 345, 260, 565, 305);
+                aktiv = OPCIOK;
+            }
+            else if (360 < event.motion.x && event.motion.x < 550 && 315 < event.motion.y && event.motion.y < 360)
+            {
+                kep_masol (screen, menu_jelolt, 360,315,550,360);
+                aktiv = HIGHSCORE;
+            }
+            else if (400 < event.motion.x && event.motion.x < 520 && 370 < event.motion.y && event.motion.y < 415)
+            {
+                kep_masol (screen, menu_jelolt, 400, 370,520, 415);
+                aktiv = LEIRAS;
+            }
+            else if (390 < event.motion.x && event.motion.x < 530 && 430 < event.motion.y && event.motion.y < 465)
+            {
+                kep_masol (screen, menu_jelolt, 390,430,530,465);
+                aktiv = KILEPES;
+            }
+            else
+            {
+                kep_masol (screen, menu_sima, 0, 0, SZELESSEG, MAGASSAG);
+                aktiv = SEMELYIK;
+            }
+            break;
+        case SDL_MOUSEBUTTONDOWN:
+            SDL_FreeSurface(menu_sima);
+            SDL_FreeSurface(menu_jelolt);
+            return aktiv;
+        }
+    }
+    SDL_FreeSurface(menu_sima);
+    SDL_FreeSurface(menu_jelolt);
+
+    return KILEPES;
+}
+
+

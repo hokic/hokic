@@ -1,0 +1,42 @@
+#include "deklaracio.h"
+#include <SDL_image.h>
+
+Menupont leiras(SDL_Event event, SDL_Surface*screen)
+{
+
+    bool quit = false;
+
+
+    SDL_Surface* leiras = IMG_Load("pictures/menu/leiras_background.png");
+    SDL_Rect dstrect_leiras = {0, 0, SZELESSEG, MAGASSAG};
+    SDL_Rect dstrect_fleiras = {0, 0, 0, 0};
+    SDL_BlitSurface(leiras, &dstrect_leiras, screen, &dstrect_fleiras);
+
+    SDL_Surface* back = IMG_Load("pictures/menu/back.png");
+    SDL_Rect dstrect_back = {0, 0, 50, 50};
+    SDL_Rect dstrect_fback = {590, 430, 0, 0};
+    SDL_BlitSurface(back, &dstrect_back, screen, &dstrect_fback);
+    SDL_Flip(screen);
+
+
+    while(!quit)
+    {
+        SDL_WaitEvent(&event);
+        switch(event.type)
+        {
+        case SDL_MOUSEBUTTONDOWN:
+            if(event.button.button == SDL_BUTTON_LEFT)
+                if (590 < event.motion.x && event.motion.x < 640 && 430 < event.motion.y && event.motion.y < 480)
+                    return FOMENU;
+            break;
+        case SDL_QUIT:
+            quit = 1;
+            break;
+        }
+
+    }
+    SDL_FreeSurface(back);
+    SDL_FreeSurface(leiras);
+    return KILEPES;
+}
+

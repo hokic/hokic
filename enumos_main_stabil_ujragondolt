@@ -32,18 +32,18 @@ int main (int argc, char* argv[])
         case FOMENU:
             menu_betolt = menu;
             break;
-        /*case JATEK:
-            menu_betolt = egyjatekos_fv;
+        case JATEK:
+            menu_betolt = jatek;
             break;
         case OPCIOK:
-            menu_betolt = tobbjatekos_fv;
+            menu_betolt = beallitasok;
             break;
         case LEIRAS:
-            menu_betolt = leiras_fv;
+            menu_betolt = leiras;
             break;
         case HIGHSCORE:
-        menu_betolt = highscore_fv:
-            break;*/
+            menu_betolt = dicsoseglista:
+            break;
         }
         menupont = menu_betolt (event, screen);
     }
@@ -52,4 +52,3 @@ int main (int argc, char* argv[])
     SDL_Quit();
     return 0;
 }
-

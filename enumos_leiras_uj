@@ -29,6 +29,7 @@ Menupont leiras(SDL_Event event, SDL_Surface*screen)
             break;
             case SDL_QUIT:
                 quit = 1;
+                break;
         }
 
     }

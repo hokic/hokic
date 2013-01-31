@@ -4,7 +4,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 
-typedef enum Menupont {FOMENU, EGYJATEKOS, TOBBJATEKOS, LEIRAS, HIGHSCORE, KILEPES} Menupont;
+typedef enum Menupont {FOMENU, JATEK, BEALLITASOK, HIGHSCORE, LEIRAS, KILEPES} Menupont;
 
 const int SZELESSEG = 640;
 const int MAGASSAG = 480;

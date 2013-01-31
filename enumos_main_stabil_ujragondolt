@@ -32,7 +32,7 @@ int main (int argc, char* argv[])
         case FOMENU:
             menu_betolt = menu;
             break;
-        case JATEK:
+        /*case JATEK:
             menu_betolt = jatek;
             break;
         case OPCIOK:
@@ -43,7 +43,7 @@ int main (int argc, char* argv[])
             break;
         case HIGHSCORE:
             menu_betolt = dicsoseglista:
-            break;
+            break;*/
         }
         menupont = menu_betolt (event, screen);
     }
